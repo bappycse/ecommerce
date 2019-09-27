@@ -31,8 +31,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('images/phone.png') }}" alt=""></div>+38 068 005 3570</div>
-						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('') }}images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('images/phone.png') }}" alt=""></div>+88 01735739455</div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('') }}images/mail.png" alt=""></div><a href="mailto:ashadbappycse@gmail.com">ashadbappycse@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
 								<ul class="standard_dropdown top_bar_dropdown">
@@ -4523,7 +4523,7 @@
 					
 					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
 						<div class="copyright_content">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://ashadbappy.com" target="_blank"></a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
 
 </div>
 						<div class="logos ml-sm-auto">
