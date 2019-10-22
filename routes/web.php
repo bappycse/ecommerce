@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('frontend.home');
 });
+
+Route::get('/product', function () {
+    return view('frontend.product');
+});
+
