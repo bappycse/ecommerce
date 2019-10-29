@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('admin.home');
+Route::get('/admin', function () {
+    return view('admin.admin');
+});
+
+Route::get('/test', function () {
+    return view('admin.test');
 });
 
 Route::get('/product', function () {
