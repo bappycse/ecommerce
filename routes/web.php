@@ -23,3 +23,7 @@ Route::get('/product', function () {
     return view('frontend.product');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
