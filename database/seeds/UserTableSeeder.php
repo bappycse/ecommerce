@@ -26,8 +26,8 @@ class UserTableSeeder extends Seeder
         $customer->roles()->attach($role_customer);
 
         $admin = new User();
-        $admin->name = "bappy";
-        $admin->email = "bappy@gmail.com";
+        $admin->name = "admin";
+        $admin->email = "admin@gmail.com";
         $admin->password = bcrypt('admin');
         $admin->save();
         $admin->roles()->attach($role_admin);
