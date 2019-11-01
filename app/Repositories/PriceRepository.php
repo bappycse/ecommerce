@@ -2,7 +2,7 @@
 namespace App\Repositories;
 
 
-class ProductRepository implements IProductRepository {
+class PriceRepository implements IPriceRepository {
     public function __construct()
     {
         
