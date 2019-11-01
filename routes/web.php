@@ -20,6 +20,9 @@ Route::get('/test', function () {
 });
 
 Route::get('/product', function () {
-    return view('frontend.product');
+    return view('frontend.layout.master');
 });
 
+Route::get('/product/single', function () {
+    return view('frontend.layout.single');
+});
