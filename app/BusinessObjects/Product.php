@@ -2,11 +2,12 @@
 
 namespace App\Businessobeject;
 
-use App\Businessobeject\Image;
+use App\Businessobeject\ProductImage;
 use App\Businessobeject\Category;
 use App\Businessobeject\SubCategory;
 use App\Businessobeject\Price;
 use App\Businessobeject\Discount;
+use App\Repositories\ICartRepository;
 
 class Product implements IProduct
 {
@@ -18,6 +19,21 @@ class Product implements IProduct
     private $price;
     private $discount;
     private $information;
+
+    public function listProduct(){
+
+    }
+
+    public function Categories(ICartRepository $category){
+
+    }
+
+    public function searchProduct(){
+        
+    }
+
+
+
 
 
 }

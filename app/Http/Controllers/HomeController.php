@@ -28,4 +28,8 @@ class HomeController extends Controller
         $productService->Add();
         return view('home');
     }
+
+    public function test(Request $request, ICategoryService $categoryServie){
+        $categoryServie->addCat();
+    }
 }

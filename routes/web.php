@@ -20,11 +20,16 @@ Route::get('/test', function () {
 });
 
 Route::get('/product', function () {
-    return view('frontend.product');
+    return view('frontend.home');
 });
 
+Route::get('/single', function () {
+    return view('frontend.single');
+});
+
+Route::get('/category', 'HomeController@category')->name('category');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
+Route::get('/admin', 'AdminController@adminDashboard')->name('admin'); 
