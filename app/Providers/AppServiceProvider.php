@@ -25,9 +25,26 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'App\Repositories\ICategoryRepository',
+            'App\Repositories\CategoryRepository'
+        );
+
+        $this->app->bind(
             'App\Services\ICategoryService',
             'App\Services\CategoryService'
         );
+
+        $this->app->bind(
+            'App\Repositories\IDiscountRepository',
+            'App\Repositories\DiscountRepository'
+        );
+
+        $this->app->bind(
+            'App\Services\IDiscountService',
+            'App\Services\DiscountService'
+        );
+       
+        
     }
 
     /**

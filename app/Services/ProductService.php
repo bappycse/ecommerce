@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\IProductRepository;
-use App\Repositories\ProductRepository;
+use App\Repositories\Repository;
 
 class ProductService implements IProductService
 { 

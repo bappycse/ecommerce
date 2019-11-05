@@ -5,16 +5,21 @@ namespace App\Repositories;
 
 class PriceRepository implements IPriceRepository
 {
-    public function Get($id);
+    public function Get($id)
+    { }
 
-    public function GetAll();
-
-
-    public function Add();
-
-
-    public function Update($id);
+    public function GetAll()
+    { }
 
 
-    public function Delete($id);
+    public function Add()
+    { }
+
+
+    public function Update($id)
+    { }
+
+
+    public function Delete($id)
+    { }
 }

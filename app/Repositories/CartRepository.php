@@ -3,19 +3,10 @@
 namespace App\Repositories;
 
 
-class CartRepository implements ICart
+class CartRepository implements ICartRepository
 {
-
-    public function Get($id);
-   
-    public function GetAll();
-    
-
-    public function Add();
-    
-
-    public function Update($id);
-    
-
-    public function Delete($id);
+    public function getTotal()
+    {
+        echo "Get Total";
+    }
 }

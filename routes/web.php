@@ -32,4 +32,5 @@ Route::get('/category', 'HomeController@category')->name('category');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/discount', 'HomeController@totalDiscount')->name('discount');
 Route::get('/admin', 'AdminController@adminDashboard')->name('admin'); 

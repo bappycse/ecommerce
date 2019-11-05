@@ -3,29 +3,14 @@
 namespace App\Repositories;
 
 
-class CategoryRepository implements ICategory
+class CategoryRepository implements ICategoryRepository
 {
 
-    public function Get($id){
 
+    public function add(){
+        echo "Category";
     }
+    
+
    
-    public function GetAll(){
-
-    }
-    
-
-    public function Add(){
-        echo "hi Category";
-    }
-    
-
-    public function Update($id){
-
-    }
-    
-
-    public function Delete($id){
-
-    }
 }

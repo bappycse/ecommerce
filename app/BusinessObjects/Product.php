@@ -7,7 +7,6 @@ use App\Businessobeject\Category;
 use App\Businessobeject\SubCategory;
 use App\Businessobeject\Price;
 use App\Businessobeject\Discount;
-use App\Repositories\ICartRepository;
 
 class Product implements IProduct
 {
