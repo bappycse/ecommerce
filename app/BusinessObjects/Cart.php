@@ -1,4 +1,8 @@
 <?php
+namespace App\BusinessObeject;
+
+use App\BusinessObeject\CartItem;
+use App\BusinessObeject\Coupon;
 
 class Cart
 {
@@ -6,12 +10,21 @@ class Cart
     private $cartItem;
     private $totalAmount;
 
-    public function applyCoupon($coupon)
+    public function __construct()
     {
-       return  $this->totalAmount; 
+        
+    }
+    public function applyCoupon(Coupon $coupon)
+    {
+        $this->coupon = $coupon;
     }
 
-    public function addCartItem(){
+    public function getTotalAmount(){
+        return $this->totalAmount;
+    }
+    public function addCartItem(CartItem $cartItem){
+        $this->cartItem = $cartItem;
 
+        
     }
 }

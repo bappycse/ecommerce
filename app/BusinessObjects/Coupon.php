@@ -1,5 +1,7 @@
 <?php
 
+namespace App\BusinessObeject;
+
 class Coupon
 {
     private $name;
