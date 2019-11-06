@@ -24,6 +24,12 @@ Route::get('/product', function () {
     return view('frontend.layout.master');
 });
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/product/single', function () {
     return view('frontend.layout.single');
 
@@ -31,3 +37,4 @@ Route::get('/', function () {
     return view('welcome');
 
 });
+
