@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/admin', function () {
     return view('admin.admin');
 });
@@ -20,7 +21,11 @@ Route::get('/test', function () {
 });
 
 Route::get('/product', function () {
+
     return view('frontend.home');
+
+    return view('frontend.layout.master');
+
 });
 
 Route::get('/single', function () {
@@ -29,8 +34,25 @@ Route::get('/single', function () {
 
 Route::get('/category', 'HomeController@category')->name('category');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/discount', 'HomeController@totalDiscount')->name('discount');
 Route::get('/admin', 'AdminController@adminDashboard')->name('admin'); 
+
+
+Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
+
+
+Route::get('/product/single', function () {
+    return view('frontend.layout.single');
+
+Route::get('/', function () {
+    return view('welcome');
+
+});
+
+
+
