@@ -11,6 +11,23 @@
 |
 */
 
+
+Route::get('/admin', function () {
+    return view('admin.admin');
+});
+
+Route::get('/test', function () {
+    return view('admin.test');
+});
+
+Route::get('/product', function () {
+    return view('frontend.layout.master');
+});
+
+Route::get('/product/single', function () {
+    return view('frontend.layout.single');
+
 Route::get('/', function () {
     return view('welcome');
+
 });
