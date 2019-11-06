@@ -30,6 +30,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
+
+
 Route::get('/product/single', function () {
     return view('frontend.layout.single');
 
@@ -37,4 +40,5 @@ Route::get('/', function () {
     return view('welcome');
 
 });
+
 
