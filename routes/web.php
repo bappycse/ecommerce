@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/admin', function () {
     return view('admin.admin');
 });
@@ -25,4 +26,8 @@ Route::get('/product', function () {
 
 Route::get('/product/single', function () {
     return view('frontend.layout.single');
+
+Route::get('/', function () {
+    return view('welcome');
+
 });
