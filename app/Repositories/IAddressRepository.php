@@ -1,19 +1,8 @@
 <?php 
 namespace App\Repositories;
 
-interface IAddressRepository{
-    public function Get($id);
+interface IAddressRepository extends IRepository {
    
-    public function GetAll();
-    
-
-    public function Add();
-    
-
-    public function Update($id);
-    
-
-    public function Delete($id);
 } 
 
 ?>

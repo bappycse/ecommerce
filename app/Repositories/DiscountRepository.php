@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-class DiscountRepository implements IDiscountRepository
+class DiscountRepository extends Repository implements IDiscountRepository
 {
     public function discountAmount()
     {

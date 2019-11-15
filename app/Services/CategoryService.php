@@ -1,25 +1,24 @@
 <?php
 namespace App\Services;
 
-use App\Repositories\ICategorytRepository;
-use App\Repositories\CategoryRepository;
+use App\BusinessObjects\ICategory;
+
+use App\Repositories\ICategoryRepository;
 
 
 class CategoryService implements ICategoryService{
 
-    private $_category;
-    public function __construct(ICategoryRepository $category){
-        $this->_category = $category;
+    private $_categoryRepository;
+    public function __construct(ICategoryRepository $categoryRepository){
+        $this->_categoryRepository = $categoryRepository;
     }
 
-    public function addCat(){
-        $this->_category->Add();
-        
+    public function store(ICategory $category)
+    {
+       
+        $this->_categoryRepository->add($category);
     }
 
     
     
 }
-
-
-?>

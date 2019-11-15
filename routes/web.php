@@ -48,11 +48,18 @@ Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
 
 Route::get('/product/single', function () {
     return view('frontend.layout.single');
+});
 
 Route::get('/', function () {
     return view('welcome');
 
 });
+
+Route::get('/create','BookController@create');
+Route::POST('/create','BookController@store');
+Route::resource('products', 'ProductController');
+Route::resource('categories', 'CategoryController');
+Route::resource('addresses', 'AddressController');
 
 
 

@@ -2,11 +2,12 @@
 
 namespace App\Services;
 
+use App\BusinessObjects\IProduct;
+
 use App\Repositories\IProductRepository;
-use App\Repositories\Repository;
 
 class ProductService implements IProductService
-{ 
+{
     private $_productRepository;
 
     public function __construct(IProductRepository $productRepository)
@@ -14,7 +15,8 @@ class ProductService implements IProductService
         $this->_productRepository = $productRepository;
     }
 
-    public function Add(){
-        $this->_productRepository->Add();
+    public function store(IProduct $product)
+    {
+        $this->_productRepository->add($product);
     }
 }

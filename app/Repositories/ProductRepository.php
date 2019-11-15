@@ -2,29 +2,26 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Repository;
+use App\Models\Product;
 
-class ProductRepository implements IProductRepository
+class ProductRepository extends Repository implements IProductRepository
 {
-    public function Get($id)
-    { }
-
-    public function GetAll()
-    { }
-
-
-    public function Add()
+    public function __construct(Product $product)
     {
-        echo "Hi";
-     }
-
-
-    public function Update($id)
-    { 
-        echo "Hi";
+        parent::setModel($product);
     }
 
+    public function add($product)
+    {
+       
+        $product_arr = [
+            'name' => $product->getName(),
+            'price' => $product->getPrice(),
+            'category' => $product->getCategory(),
+            'discount' => $product->getDiscount()
+        ];
 
-    public function Delete($id)
-    { }
+        parent::add($product_arr);
+    }
 }
-
