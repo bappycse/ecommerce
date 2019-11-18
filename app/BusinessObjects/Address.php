@@ -6,7 +6,8 @@ class Address {
     private $street;
     private $zip;
     private $city;
-    private $country;
+    private $countryId;
+    private $customerId;
 
     public function formattedFullAddress(){
         return "$this->flatNo,$this->houseNo,$this->street,$this->zip,$this->city,$this->country";

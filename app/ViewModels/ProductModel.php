@@ -18,13 +18,11 @@ class ProductModel implements IProductModel
         $this->_productService =  $productService;
     }
 
-    public function store($request)
-    {
-        $this->_product = resolve('App\BusinessObjects\IProduct');
-        $this->_product->setName($request->input('name'));
-        $this->_product->setPrice($request->input('price'));
-        $this->_product->setCategory($request->input('category'));
-        $this->_product->setDiscount($request->input('discount'));
-        $this->_productService->store($this->_product);
+    public function get($id){
+        return $this->_productService->get($id);
+    }
+
+    public function getAll(){
+        return $this->_productService->getAll();
     }
 }

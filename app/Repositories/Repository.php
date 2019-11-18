@@ -22,7 +22,7 @@ class Repository implements IRepository
     }
 
 
-    public function getAll($data)
+    public function getAll()
     {
         return $this->model->all();
     }
@@ -32,9 +32,9 @@ class Repository implements IRepository
         $this->model->create($data);
     }
 
-    public function update(array $data, $id)
+    public function update($data, $id)
     {
-        $record = $this->find($id);
+        $record = $this->model->find($id);
         return $record->update($data);
     }
 

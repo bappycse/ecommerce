@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Businessobeject;
+namespace App\BusinessObjects;
 
-use App\Businessobeject\Address;
+use App\BusinessObjects\Address;
 
 class ContactInfo
 {

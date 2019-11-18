@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModels\ICategoryModel;
+use App\ViewModels\EditCategoryModel;
 
 class CategoryController extends Controller
 {
@@ -14,16 +15,20 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $_categoryModel;
+    private $_eCategoryModel;
 
     public function __construct(ICategoryModel $categoryModel)
     {   
         $this->_categoryModel = $categoryModel;
+        $this->_eCategoryModel =  resolve('App\ViewModels\EditCategoryModel');
+
     }
 
 
     public function index()
     {
-        //
+        $categories = $this->_categoryModel->getAll();
+        return view('admin.list-category',compact('categories'));
     }
 
     /**
@@ -33,6 +38,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        
         return view('admin.add-category');
     }
 
@@ -65,9 +71,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {
-        //
+    public function edit($id)
+    {   
+        $category = $this->_categoryModel->get($id);
+        return view('admin.edit-category',compact('category'));
     }
 
     /**
@@ -77,9 +84,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,$id)
     {
-        //
+        $this->_eCategoryModel->update($id);
+        return redirect('/categories');
     }
 
     /**
@@ -88,8 +96,8 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $this->_categoryModel->delete($id);
     }
 }

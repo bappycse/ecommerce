@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModels\IProductModel;
+use App\ViewModels\EditProductModel;
 
 class ProductController extends Controller
 {
@@ -13,16 +14,20 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $_productmModel;
+    private $_productModel;
+    private $_iproductModel;
 
-    public function __construct(IProductModel $productModel)
+    public function __construct(EditProductModel $productModel)
     {
-        $this->_productmModel = $productModel;
+        $this->_productModel = $productModel;
+        $this->_iproductModel = resolve('App\ViewModels\IProductModel');
     }
     
     public function index()
     {
-        //
+        $products = $this->_iproductModel->getAll();
+    
+        return view('admin.list-product',compact('products'));
     }
 
     /**
@@ -33,6 +38,7 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.add-product');
+        return redirect('products');
     }
 
     /**
@@ -44,7 +50,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        $this->_productmModel->store($request);
+        $this->_productModel->store($request);
         return back();
     }
 
@@ -65,9 +71,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = $this->_iproductModel->get($id);
+        return view('admin.edit-product',compact('product'));
+        //return redirect('products');
     }
 
     /**
@@ -77,9 +85,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+
+        $this->_productModel->updateProduct($id);
+        return redirect('products');
     }
 
     /**
@@ -88,8 +98,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request, $id)
     {
-        //
+       $this->_productModel->delete($id); 
+       return redirect('products');
     }
 }

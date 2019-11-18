@@ -11,7 +11,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Product Entry Page</li>
+            <li class="breadcrumb-item active">Product Update Page</li>
           </ol>
         </div>
       </div>
@@ -26,31 +26,31 @@
         <div class="col-md-6">
             <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Add Product</h3>
+                  <h3 class="card-title">Update Product</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form" action="/products" method="post">
+                <form role="form" action="/products/{{ $product['id'] }}" method="POST">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="inputName">Name</label>
-                      <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter Name">
+                      <input type="text" class="form-control" id="inputName" name="name" value="{{ $product['name'] }}" placeholder="Enter Name">
                     </div>
                     <div class="form-group">
-                      <label for="inputPrice">Sku</label>
-                      <input type="text" class="form-control" id="inputSku" name="sku" placeholder="Sku">
+                      <label for="inputSku">Sku</label>
+                      <input type="text" class="form-control" id="inputSku" name="sku"  value="{{ $product['sku'] }}" placeholder="Sku">
                     </div>
                     <div class="form-group">
                       <label for="inputPrice">Price</label>
-                      <input type="text" class="form-control" id="inputPrice" name="price" placeholder="Price">
+                      <input type="text" class="form-control" id="inputPrice" name="price" value="{{ $product['price'] }}" placeholder="Price">
                     </div>
                     <div class="form-group">
-                      <label for="inputPrice">Discount</label>
-                      <input type="text" class="form-control" id="inputdiscount" name="discount" placeholder="Discount">
+                      <label for="inputdiscount">Discount</label>
+                      <input type="text" class="form-control" id="inputdiscount" name="discount" value="{{ $product['discount'] }}" placeholder="Discount">
                     </div>  
                     <div class="form-group">
-                      <label for="inputPrice">Category</label>
-                      <input type="text" class="form-control" id="inputCategory" name="category" placeholder="Category">
+                      <label for="inputCategory">Category</label>
+                      <input type="text" class="form-control" id="inputCategory" name="category" value="{{ $product['category'] }}" placeholder="Category">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFile">File Image</label>
@@ -71,6 +71,7 @@
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
+                  @method('PATCH')
                   @csrf
                 </form>
               </div>

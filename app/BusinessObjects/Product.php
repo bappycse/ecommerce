@@ -6,10 +6,13 @@ namespace App\BusinessObjects;
 class Product implements IProduct
 {
     private $id;
+    private $brandId;
     private $name;
     private $sku;
     private $images;
     private $price;
+    private $salePrice;
+    private $status;
     private $category;
     private $subcategory;
     private $discount;
@@ -23,6 +26,16 @@ class Product implements IProduct
     public function setId($id)
     {
         return $this->id = $id;
+    }
+
+    public function getBrandId()
+    {
+        return $this->brandId;
+    }
+
+    public function setBrandId($id)
+    {
+        return $this->brandId = $id;
     }
 
     public function getName()
@@ -39,6 +52,11 @@ class Product implements IProduct
     {
         return $this->sku;
     }
+
+    public function setSku($sku)
+    {
+        return $this->sku = $sku;
+    }
     public function getImage()
     {
         return $this->images;
@@ -48,10 +66,6 @@ class Product implements IProduct
         return $this->images = $images;
     }
 
-    public function setSku($sku)
-    {
-        return $this->sku = $sku;
-    }
 
     public function getPrice()
     {
@@ -61,6 +75,26 @@ class Product implements IProduct
     public function setPrice($price)
     {
         return $this->price = $price;
+    }
+
+    public function getSalePrice()
+    {
+        return $this->salePrice;
+    }
+
+    public function setSalePrice($price)
+    {
+        return $this->salePrice = $price;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($status)
+    {
+        return $this->status = $status;
     }
 
     public function getCategory()
@@ -83,12 +117,23 @@ class Product implements IProduct
         return $this->subcategory = $subcategory;
     }
 
-    public function getDiscount(){
+    public function getDiscount()
+    {
         return $this->discount;
     }
 
     public function setDiscount($discount)
     {
         return $this->discount = $discount;
+    }
+
+    public function getInfo()
+    {
+        return $this->information;
+    }
+
+    public function setInfo($info)
+    {
+        return $this->information = $info;
     }
 }
