@@ -31,11 +31,12 @@ class EditProductModel
     public function store($request)
     {
         $this->_product = resolve('App\BusinessObjects\IProduct');
-        $this->_product->setName($request->input('name'));
-        $this->_product->setSku($request->input('sku'));
-        $this->_product->setPrice($request->input('price'));
-        $this->_product->setDiscount($request->input('discount'));
-        $this->_product->setCategory($request->input('category'));
+        $this->_product->setName( $this->_name);
+        $this->_product->setSku($this->_sku);
+        $this->_product->setPrice($this->_price);
+        $this->_product->setDiscount($this->_discount);
+        $this->_product->setCategory($this->_category);  
+        dd($this->_product);
         $this->_productService->store($this->_product);
     }
 

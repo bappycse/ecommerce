@@ -57,9 +57,12 @@ Route::get('/', function () {
 
 Route::get('/create','BookController@create');
 Route::POST('/create','BookController@store');
-Route::resource('products', 'ProductController');
+
 Route::resource('categories', 'CategoryController');
+Route::get('/products/getProductJson', 'ProductController@getProductsJson');
+Route::resource('/products', 'ProductController');
 Route::resource('addresses', 'AddressController');
 
 
+Route::get('/articles', 'ArticleController@show');
 

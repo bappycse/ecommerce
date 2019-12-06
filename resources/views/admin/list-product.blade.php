@@ -23,6 +23,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" /></th>
+                                    <th>Name</th>
+                                    <th>Image(s)</th>
+                                    <th>Price</th>
+                                    <th>Discount</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">All Product Lists</h3>
@@ -77,4 +96,5 @@
   </section>
   <!-- /.content -->
 </div>
+
 @endsection

@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ViewModels\IProductModel;
 use App\ViewModels\EditProductModel;
+use Illuminate\Support\Facades\Log;
+use App\ViewModels\DataTablesModel;
+
 
 class ProductController extends Controller
 {
@@ -16,7 +19,7 @@ class ProductController extends Controller
      */
     private $_productModel;
     private $_iproductModel;
-
+    
     public function __construct(EditProductModel $productModel)
     {
         $this->_productModel = $productModel;
@@ -60,7 +63,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show()
     {
         //
     }
@@ -75,7 +78,7 @@ class ProductController extends Controller
     {
         $product = $this->_iproductModel->get($id);
         return view('admin.edit-product',compact('product'));
-        //return redirect('products');
+        return redirect('products');
     }
 
     /**
@@ -90,6 +93,14 @@ class ProductController extends Controller
 
         $this->_productModel->updateProduct($id);
         return redirect('products');
+    }
+
+    public function getProductsJson(Request $request)
+    {
+        $dataTablesModel = new DataTablesModel($request);
+        $model = resolve('App\ViewModels\IProductModel');
+        return $model->getProductsJsonData($dataTablesModel);
+        
     }
 
     /**

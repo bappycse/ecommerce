@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+
 use App\Repositories\Repository;
 use App\Models\Product;
 use App\Library\Helper;
@@ -16,8 +17,7 @@ class ProductRepository extends Repository implements IProductRepository
     }
 
     public function add($product)
-    {
-       
+    {    
         $product_arr = [
             'name' => $product->getName(),
             'sku'  => $product->getSku(),
@@ -56,6 +56,21 @@ class ProductRepository extends Repository implements IProductRepository
 
      public function delete($id){
          parent::delete($id);
+     }
+
+     public function getPagedProducts($searchText, $pageIndex, $pageSize)
+     {
+         return $this->getAll();
+     }
+ 
+     public function getTotalProductCount()
+     {
+         return count($this->getAll());
+     }
+ 
+     public function getTotalDisplayableProducts($searchText)
+     {
+         return count($this->getAll());
      }
    
 
