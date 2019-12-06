@@ -1,9 +1,8 @@
-<?php 
+<?php
 
 namespace App\Services;
 
-interface IProductService{
+use App\BusinessObjects\IProduct;
 
-}
-
-?>
+interface IProductService
+{ }

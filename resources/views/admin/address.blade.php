@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Dashboard</h1>
+          <h1 class="m-0 text-dark">Address Entry</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,12 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-        <h3>test</h3>
+        <form action="/addresses" method="POST">
+          <input type="text" name="present">
+          <input type="text" name="permanent">
+          <input type="submit" value="Submit">
+          @csrf
+        </form>
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->

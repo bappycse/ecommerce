@@ -2,32 +2,19 @@
 
 namespace App\Repositories;
 
+use App\Models\Address;
 
-class Adress implements IAddress
+class AddressRepository extends Repository implements IAddressRepository
 {
 
-   
-    public function Get($id){
+    public function __construct()
+    { }
 
+    public function addAddress($present, $permanent)
+    {
+        $book = new Address;
+        $book->present = $present;
+        $book->permanent = $permanent;
+        $book->save();
     }
-   
-    public function GetAll(){
-
-    }
-    
-
-    public function Add(){
-
-    }
-    
-
-    public function Update($id){
-
-    }
-    
-
-    public function Delete($id){
-    	
-    }
-    
 }
