@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\ViewModels\DataTablesModel;
 use Illuminate\Http\Request;
 use App\ViewModels\IProductModel;
 use App\ViewModels\EditProductModel;
@@ -22,11 +23,11 @@ class ProductController extends Controller
         $this->_productModel = $productModel;
         $this->_iproductModel = resolve('App\ViewModels\IProductModel');
     }
-    
+
     public function index()
     {
         $products = $this->_iproductModel->getAll();
-    
+
         return view('admin.list-product',compact('products'));
     }
 
@@ -92,6 +93,11 @@ class ProductController extends Controller
         return redirect('products');
     }
 
+    public function getProductsJson(Request $request, DataTablesModel $dataTablesModel){
+        $model = resolve('App\ViewModels\ViewProductModel');
+        return response()->json($model->getProductsJsonData($dataTablesModel));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -100,7 +106,7 @@ class ProductController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-       $this->_productModel->delete($id); 
+       $this->_productModel->delete($id);
        return redirect('products');
     }
 }

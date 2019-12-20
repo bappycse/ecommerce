@@ -21,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'App\ViewProductModels\IViewModel',
+            'App\ViewProductModels\ViewModel'
+        );
+
+        $this->app->bind(
             'App\BusinessObjects\ICategory',
             'App\BusinessObjects\Category'
         );
@@ -82,7 +87,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\ViewModel\CreateBookModel'
         );
-        
+
     }
 
     /**

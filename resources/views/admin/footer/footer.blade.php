@@ -24,6 +24,9 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+
 <!-- ChartJS -->
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Sparkline -->
@@ -48,5 +51,24 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
+<script>
+    $(function () {
+        $('#example1').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/products/getProductsJson",
+            "columnDefs": [
+                {
+                    "orderable":false,
+                    "targets": 0,
+                    "render": function (data,type,row) {
+                        return `<input type='checkbox' value='${data}'/>`;
+
+                    }
+                }
+            ]
+        });
+    });
+</script>
 </body>
 </html>

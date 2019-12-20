@@ -40,7 +40,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/discount', 'HomeController@totalDiscount')->name('discount');
-Route::get('/admin', 'AdminController@adminDashboard')->name('admin'); 
+Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
 
 
 Route::get('/admin', 'AdminController@adminDashboard')->name('admin');
@@ -57,6 +57,7 @@ Route::get('/', function () {
 
 Route::get('/create','BookController@create');
 Route::POST('/create','BookController@store');
+Route::get('products/getProductsJson', 'ProductController@getProductsJson');
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'CategoryController');
 Route::resource('addresses', 'AddressController');

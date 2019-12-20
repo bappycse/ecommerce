@@ -5,6 +5,7 @@ namespace App\Services;
 use App\BusinessObjects\IProduct;
 
 use App\Repositories\IProductRepository;
+use App\ViewModels\PagedData;
 
 class ProductService implements IProductService
 {
@@ -20,13 +21,17 @@ class ProductService implements IProductService
         $this->_productRepository->add($product);
     }
 
-    public function get($id){
-        return $this->_productRepository->get($id);
-    }
-
     public function getAll(){
         return $this->_productRepository->getAll();
-      
+
+    }
+
+    public function getProducts($searchText,$pageIndex,$pageSize)
+    {
+        $products = $this->_productRepository->getPagedProducts($searchText, $pageIndex,$pageSize);
+        $totalCount = $this->_productRepository->getTotalProductCount();
+        $totalDisplayCount = $this->_productRepository->getTotalDisplayableProducts($searchText);
+        return new PagedData($products,$totalCount,$totalDisplayCount);
     }
 
     public function updateProduct($product,$id){

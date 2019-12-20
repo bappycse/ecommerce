@@ -17,7 +17,7 @@ class ProductRepository extends Repository implements IProductRepository
 
     public function add($product)
     {
-       
+
         $product_arr = [
             'name' => $product->getName(),
             'sku'  => $product->getSku(),
@@ -38,7 +38,7 @@ class ProductRepository extends Repository implements IProductRepository
     public function getAll(){
        $productBo =  parent::getAll();
        return Helper::allData($productBo);
-        
+
     }
 
     public function update($product,$id){
@@ -51,15 +51,27 @@ class ProductRepository extends Repository implements IProductRepository
         ];
 
         parent::update($product_arr,$id);
-            
+
      }
 
      public function delete($id){
          parent::delete($id);
      }
-   
 
-    
+     public function getPagedProducts($searchText, $pageIndex, $pageSize)
+     {
+         return $this->getAll();
+     }
 
-    
+     public function getTotalProductCount(){
+        return count($this->getAll());
+     }
+
+     public function getTotalDisplayableProducts()
+     {
+         return count($this->getAll());
+     }
+
+
+
 }
