@@ -17,7 +17,7 @@ class ProductRepository extends Repository implements IProductRepository
 
     public function getWithFilter($field, $fieldValue, $orderColumn, $orderDirection, $itemCount)
     {
-        return $this->model ->where($field,'like','%'.$fieldValue.'%')
+        return $this->model->where($field, 'like', '%'.$fieldValue.'%')
             ->orderBy($orderColumn, $orderDirection)
             ->take($itemCount)
             ->get();
@@ -69,7 +69,7 @@ class ProductRepository extends Repository implements IProductRepository
      public function getPagedProducts($searchText, $sortOrder, $pageIndex, $pageSize)
      {
 
-         $productArr =  $this->getWithFilter('name',$searchText,$sortOrder->columnName,$sortOrder->columnDirection ,$pageSize);
+         $productArr =  $this->getWithFilter('name', $searchText, $sortOrder->columnName, $sortOrder->columnDirection, $pageSize);
          return Helper::allData($productArr);
      }
 
@@ -77,9 +77,9 @@ class ProductRepository extends Repository implements IProductRepository
         return count($this->getAll());
      }
 
-     public function getTotalDisplayableProducts($searchText, $sortOrder, $pageIndex, $pageSize)
+     public function getTotalDisplayableProducts($searchText)
      {
-         return count($this->getWithFilter('name', $searchText, 'name', 'asc', 5));
+         return count($this->getWithFilter('name', $searchText, 'name', 'asc', 6));
      }
 
 
