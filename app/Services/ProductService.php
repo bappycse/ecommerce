@@ -26,11 +26,11 @@ class ProductService implements IProductService
 
     }
 
-    public function getProducts($searchText,$pageIndex,$pageSize)
+    public function getProducts($searchText, $sortOrder, $pageIndex,$pageSize)
     {
-        $products = $this->_productRepository->getPagedProducts($searchText, $pageIndex,$pageSize);
+        $products = $this->_productRepository->getPagedProducts($searchText, $sortOrder, $pageIndex,$pageSize);
         $totalCount = $this->_productRepository->getTotalProductCount();
-        $totalDisplayCount = $this->_productRepository->getTotalDisplayableProducts($searchText);
+        $totalDisplayCount = $this->_productRepository->getTotalDisplayableProducts($searchText, $sortOrder, $pageIndex,$pageSize);
         return new PagedData($products,$totalCount,$totalDisplayCount);
     }
 

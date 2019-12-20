@@ -5,6 +5,7 @@ namespace App\ViewModels;
 
 
 use Illuminate\Http\Request;
+use App\ViewModels\SortOrder;
 
 class  DataTablesModel
 {
@@ -27,7 +28,15 @@ class  DataTablesModel
 
     public function getSearchText()
     {
-        return $this->_request->input("search");
+        return $this->_request->input("search")['value'];
+    }
+
+    public function getSortOrder($columnNames)
+    {
+        $orders = $this->_request->input("order");
+        if($orders != null && count($orders) > 0){
+            return new SortOrder($columnNames[$orders[0]['column']], $orders[0]['dir']);
+        }
     }
 
     public function getPageIndex()

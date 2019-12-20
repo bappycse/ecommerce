@@ -15,6 +15,14 @@ class ProductRepository extends Repository implements IProductRepository
         parent::setModel($this->_product);
     }
 
+    public function getWithFilter($field, $fieldValue, $orderColumn, $orderDirection, $itemCount)
+    {
+        return $this->model ->where($field,'like','%'.$fieldValue.'%')
+            ->orderBy($orderColumn, $orderDirection)
+            ->take($itemCount)
+            ->get();
+    }
+
     public function add($product)
     {
 
@@ -58,18 +66,20 @@ class ProductRepository extends Repository implements IProductRepository
          parent::delete($id);
      }
 
-     public function getPagedProducts($searchText, $pageIndex, $pageSize)
+     public function getPagedProducts($searchText, $sortOrder, $pageIndex, $pageSize)
      {
-         return $this->getAll();
+
+         $productArr =  $this->getWithFilter('name',$searchText,$sortOrder->columnName,$sortOrder->columnDirection ,$pageSize);
+         return Helper::allData($productArr);
      }
 
      public function getTotalProductCount(){
         return count($this->getAll());
      }
 
-     public function getTotalDisplayableProducts()
+     public function getTotalDisplayableProducts($searchText, $sortOrder, $pageIndex, $pageSize)
      {
-         return count($this->getAll());
+         return count($this->getWithFilter('name', $searchText, 'name', 'asc', 5));
      }
 
 

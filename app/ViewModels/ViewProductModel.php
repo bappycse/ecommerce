@@ -26,6 +26,7 @@ class ViewProductModel {
         $totalFiltered = 0;
         $records = $this->_productService->getProducts(
           $dataTablesModel->getSearchText(),
+          $dataTablesModel->getSortOrder(['id','name','image','category','price','discount ']),
           $dataTablesModel->getPageIndex(),
           $dataTablesModel->getPageSize()
         );
@@ -48,6 +49,7 @@ class ViewProductModel {
                 $productData[$i]->getId(),
                 $productData[$i]->getName(),
                 $productData[$i]->getImage(),
+                $productData[$i]->getCategory(),
                 $productData[$i]->getPrice(),
                 $productData[$i]->getDiscount(),
             ];

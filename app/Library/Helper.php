@@ -14,10 +14,11 @@ class Helper
 
             $product->setId($productItem['id']);
             $product->setName($productItem['name']);
-            $product->setSku($productItem['sku']);
+            $product->setSku($productItem['image']);
+            $product->setCategory($productItem['category']);
             $product->setPrice($productItem['price']);
             $product->setDiscount($productItem['discount']);
-            $product->setCategory($productItem['category']);
+
 
             $products[] = $product;
         }
@@ -38,6 +39,6 @@ class Helper
         }
 
         return $categories;
-        
+
     }
 }

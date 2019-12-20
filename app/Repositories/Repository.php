@@ -21,6 +21,12 @@ class Repository implements IRepository
         return $this->model->findOrFail($id);
     }
 
+    public function getWithFilter($field,$fieldValue,$orderColumn,$orderDirection, $itemCount){
+        return $this->model->where($field,$fieldValue)
+            ->orderBy($orderColumn, $orderDirection)
+            ->take($itemCount)
+            ->get();
+    }
 
     public function getAll()
     {

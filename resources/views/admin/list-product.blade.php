@@ -35,6 +35,7 @@
                                     <th><input type="checkbox" /></th>
                                     <th>Name</th>
                                     <th>Image(s)</th>
+                                    <th>Category</th>
                                     <th>Price</th>
                                     <th>Discount</th>
                                 </tr>
