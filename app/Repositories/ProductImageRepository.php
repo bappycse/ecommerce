@@ -3,6 +3,6 @@
 namespace App\Repositories;
 
 
-interface ProductImageRepository extends Repository {
+interface ProductImageRepository extends IRepository {
 
 }

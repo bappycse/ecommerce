@@ -37,6 +37,7 @@
                                     <th>Category</th>
                                     <th>Price</th>
                                     <th>Discount</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                             </table>

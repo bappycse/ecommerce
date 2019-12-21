@@ -65,6 +65,18 @@
                         return `<input type='checkbox' value='${data}'/>`;
 
                     }
+                },
+                {
+                    "orderable":false,
+                    "targets": 5,
+                    "render": function (data,type,row) {
+                        return `<a href='/products/${data}/edit'><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <button type="submit" value='${data}' style="background: transparent; border: none;
+                                  display: inline-block;color: darkorange"><i class="fa fa-trash-o"
+                                                                              aria-hidden="true"></i></button>`;
+
+                    }
                 }
             ]
         });

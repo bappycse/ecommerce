@@ -21,6 +21,10 @@ class ProductService implements IProductService
         $this->_productRepository->add($product);
     }
 
+    public function get($id){
+        return $this->_productRepository->get($id);
+    }
+
     public function getAll(){
         return $this->_productRepository->getAll();
 

@@ -3,22 +3,26 @@
 namespace App\ViewModels;
 
 use App\Services\IProductService;
+use App\Library\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EditProductModel
 {
-    private $_editModel;
+    private $_update;
     private $_product;
     private $_productService;
     private $_id;
-    private $_name;
+    public $_name;
     private $_sku;
     private $_price;
-    private $_diccount;
+    private $_discount;
     private $_category;
 
     public function __construct(IProductService $productService, Request $request)
     {
+        $this->_productService = $productService;
+        $this->loadFields($request);
         $this->_productService = $productService;
         $this->_id = $request->input('id');
         $this->_name = $request->input('name');
@@ -41,14 +45,8 @@ class EditProductModel
 
     public function updateProduct($id)
     {
-        $_product = resolve('App\BusinessObjects\IProduct');
-        $_product->setName($this->_name);
-        $_product->setSku($this->_sku);
-        $_product->setPrice($this->_price);
-        $_product->setDiscount($this->_discount);
-        $_product->setCategory($this->_category);
-
-        $this->_productService->updateProduct($_product, $id);
+        $product = Helper::convertProductFromModel($this);
+        $this->_productService->updateProduct($product, $id);
         return redirect('/products');
     }
 
@@ -57,4 +55,14 @@ class EditProductModel
         $_product->setId($this->_id);
         $this->_productService->delete($id);
      }
+
+    private function loadFields(Request $request)
+    {
+        $this->name = $request->input('name');
+        $this->image = $request->input('image');
+        $this->sku = $request->input('sku');
+        $this->price = $request->input('price');
+        $this->category = $request->input('category');
+        $this->discount = $request->input('discount');
+    }
 }
