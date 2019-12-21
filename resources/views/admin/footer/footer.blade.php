@@ -51,36 +51,7 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
-<script>
-    $(function () {
-        $('#example1').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": "/products/getProductsJson",
-            "columnDefs": [
-                {
-                    "orderable":false,
-                    "targets": 0,
-                    "render": function (data,type,row) {
-                        return `<input type='checkbox' value='${data}'/>`;
+<script src="{{ asset('js/main.js') }}"></script>
 
-                    }
-                },
-                {
-                    "orderable":false,
-                    "targets": 5,
-                    "render": function (data,type,row) {
-                        return `<a href='/products/${data}/edit'><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                <button type="submit" value='${data}' style="background: transparent; border: none;
-                                  display: inline-block;color: darkorange"><i class="fa fa-trash-o"
-                                                                              aria-hidden="true"></i></button>`;
-
-                    }
-                }
-            ]
-        });
-    });
-</script>
 </body>
 </html>

@@ -13,7 +13,7 @@ class EditProductModel
     private $_product;
     private $_productService;
     private $_id;
-    public $_name;
+    private $_name;
     private $_sku;
     private $_price;
     private $_discount;
