@@ -9,7 +9,7 @@ class Product implements IProduct
     private $brandId;
     private $name;
     private $sku;
-    private $images;
+    private $image;
     private $price;
     private $salePrice;
     private $status;
@@ -59,11 +59,11 @@ class Product implements IProduct
     }
     public function getImage()
     {
-        return $this->images;
+        return $this->image;
     }
     public function setImage($images)
     {
-        return $this->images = $images;
+        return $this->image = $images;
     }
 
 

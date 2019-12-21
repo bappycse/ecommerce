@@ -30,7 +30,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form" action="/products" method="post">
+                <form role="form" action="/products" method="POST" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="inputName">Name</label>
@@ -45,29 +45,20 @@
                       <input type="text" class="form-control" id="inputPrice" name="price" placeholder="Price">
                     </div>
                     <div class="form-group">
-                      <label for="inputPrice">Discount</label>
-                      <input type="text" class="form-control" id="inputdiscount" name="discount" placeholder="Discount">
-                    </div>  
+                      <label for="discount">Discount</label>
+                      <input type="text" class="form-control" id="discount" name="discount" placeholder="Discount">
+                    </div>
                     <div class="form-group">
-                      <label for="inputPrice">Category</label>
+                      <label for="inputCategory">Category</label>
                       <input type="text" class="form-control" id="inputCategory" name="category" placeholder="Category">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">File Image</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image" id="inputImage">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text" id="">Upload</span>
-                        </div>
+                      <div class="col-md-6">
+                          <input type="file" name="image" class="form-control">
                       </div>
-                    </div>
-                   
+
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>

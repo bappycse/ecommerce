@@ -50,6 +50,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        if( $request->hasFile('image')) {
+            $storename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->merge(["image"=>$storename]);
+        }
+
+
 
         $this->_productModel->store($request);
         return back();

@@ -34,13 +34,8 @@ class EditProductModel
 
     public function store($request)
     {
-        $this->_product = resolve('App\BusinessObjects\IProduct');
-        $this->_product->setName($request->input('name'));
-        $this->_product->setSku($request->input('sku'));
-        $this->_product->setPrice($request->input('price'));
-        $this->_product->setDiscount($request->input('discount'));
-        $this->_product->setCategory($request->input('category'));
-        $this->_productService->store($this->_product);
+        $product = Helper::convertProductFromModel($this);
+        $this->_productService->store($product);
     }
 
     public function updateProduct($id)
@@ -58,8 +53,13 @@ class EditProductModel
 
     private function loadFields(Request $request)
     {
+        if( $request->hasFile('image')) {
+            $storename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path('uploads'), $storename);
+            $this->image = $storename;
+        }
         $this->name = $request->input('name');
-        $this->image = $request->input('image');
+
         $this->sku = $request->input('sku');
         $this->price = $request->input('price');
         $this->category = $request->input('category');

@@ -3,6 +3,7 @@
 namespace App\Library;
 
 use App\ViewModels\EditProductModel;
+use App\ViewModels\IProductModel;
 use Illuminate\Support\Facades\Log;
 class Helper
 {
@@ -26,6 +27,20 @@ class Helper
         }
 
         return $products;
+    }
+
+    public static function addModel(EditProductModel  $model)
+    {
+
+        $product = resolve('App\BusinessObjects\IProduct');
+
+        $product->setName($model->name);
+        $product->setImage($model->image);
+        $product->setSku($model->sku);
+        $product->setPrice($model->price);
+        $product->setCategory($model->category);
+        $product->setDiscount($model->discount);
+        return $product;
     }
 
     public static function convertProductFromModel(EditProductModel $model)
