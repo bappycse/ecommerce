@@ -18,7 +18,7 @@ class CategoryController extends Controller
     private $_eCategoryModel;
 
     public function __construct(ICategoryModel $categoryModel)
-    {   
+    {
         $this->_categoryModel = $categoryModel;
         $this->_eCategoryModel =  resolve('App\ViewModels\EditCategoryModel');
 
@@ -38,7 +38,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
+
         return view('admin.add-category');
     }
 
@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->_categoryModel->store($request);
+        $this->_categoryModel->addCategory($request);
         return back();
     }
 
@@ -72,7 +72,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $category = $this->_categoryModel->get($id);
         return view('admin.edit-category',compact('category'));
     }

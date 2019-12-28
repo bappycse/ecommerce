@@ -7,6 +7,8 @@ class Category implements ICategory
     private $id;
     private $parentId;
     private $name;
+    private $slug;
+    private $featured;
     private $description;
     private $status;
     private $cover;
@@ -36,13 +38,33 @@ class Category implements ICategory
     }
 
     public function getName()
-    {
-        return $this->name;
-    }
+{
+    return $this->name;
+}
 
     public function setName($name)
     {
         return $this->name = $name;
+    }
+
+    public function getSlug()
+{
+    return $this->slug;
+}
+
+    public function setSlug($name)
+    {
+        return $this->slug = $name;
+    }
+
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+
+    public function setFeatured($name)
+    {
+        return $this->featured = $name;
     }
 
     public function getDescription()

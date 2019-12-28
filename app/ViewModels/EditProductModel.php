@@ -65,4 +65,6 @@ class EditProductModel
         $this->category = $request->input('category');
         $this->discount = $request->input('discount');
     }
+
+
 }

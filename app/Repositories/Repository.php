@@ -68,4 +68,34 @@ class Repository implements IRepository
     {
         return $this->model->with($relations);
     }
+
+    public function find(int $id)
+    {
+        return $this->model->find($id);
+    }
+    /**
+     * @param int $id
+     * @return mixed
+     * @throws ModelNotFoundException
+     */
+    public function findOneOrFail(int $id)
+    {
+        return $this->model->findOrFail($id);
+    }
+
+    public function findOneBy(array $data)
+    {
+        return $this->model->where($data)->first();
+    }
+    /**
+     * @param array $data
+     * @return mixed
+     * @throws ModelNotFoundException
+     */
+    public function findOneByOrFail(array $data)
+    {
+        return $this->model->where($data)->firstOrFail();
+    }
+
+
 }

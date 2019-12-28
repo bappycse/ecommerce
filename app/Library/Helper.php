@@ -38,7 +38,20 @@ class Helper
         $product->setPrice($model->price);
         $product->setCategory($model->category);
         $product->setDiscount($model->discount);
+
         return $product;
+    }
+
+    public static function convertCategoryModel($model)
+    {
+
+        $category = resolve('App\BusinessObjects\ICategory');
+        $category->setName($model->name);
+        $category->setSlug($model->slug);
+        $category->setDescription($model->description);
+        $category->setParentId($model->parent_id);
+        $category->setFeatured($model->featured);
+        return $category;
     }
 
     public static function catAllData($catArr)

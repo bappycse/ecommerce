@@ -23,11 +23,16 @@ class CategoryRepository extends Repository implements ICategoryRepository
         return Helper::catAllData($category);
      }
 
-    public function add($category)
+    public function addCategory($category)
     {
-        
+
         $category_arr = [
-            'name' => $category->getName()
+            'name' => $category->getName(),
+            'slug' => $category->getSlug(),
+            'description' => $category->getDescription(),
+            'parent_id'  => $category->getParentId(),
+            'featured'  => $category->getFeatured()
+
         ];
         parent::add($category_arr);
     }

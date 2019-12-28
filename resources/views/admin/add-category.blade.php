@@ -36,7 +36,24 @@
                       <label for="inputName">Name</label>
                       <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter Name">
                     </div>
-                    
+                      <div class="form-group">
+                          <label for="inputName">Slug</label>
+                          <input type="text" class="form-control" id="inputName" name="slug" placeholder="Enter Slug">
+                      </div>
+                      <div class="form-group">
+                          <label for="inputName">Description</label>
+                          <textarea name="description" id="" cols="30" rows="10"></textarea>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputName">Featured</label>
+                          <input type="text" class="form-control" id="inputName" name="featured" placeholder="Enter Featured">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inputName">Parent Id</label>
+                          <input type="text" class="form-control" id="inputName" name="parent_id" placeholder="Enter Featured id">
+                      </div>
+
                     <div class="form-group">
                       <label for="exampleInputFile">File Image</label>
                       <div class="input-group">
@@ -49,10 +66,10 @@
                         </div>
                       </div>
                     </div>
-                   
+
                   </div>
                   <!-- /.card-body -->
-  
+
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>

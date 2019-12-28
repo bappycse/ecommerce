@@ -13,19 +13,20 @@ class CategoryService implements ICategoryService{
 
 
 
-    public function store(ICategory $category)
+    public function addCategory($category)
     {
-        $this->_categoryRepository->add($category);
+
+        $this->_categoryRepository->addCategory($category);
     }
 
     public function get($id){
         return $this->_categoryRepository->get($id);
-        
+
     }
 
     public function getAll(){
         return $this->_categoryRepository->getAll();
-        
+
     }
 
     public function UpdateCategory($category,$id){
